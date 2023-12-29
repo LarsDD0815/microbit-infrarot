@@ -1,3 +1,10 @@
+mecanumRobotV2.setServo(0)
+let LichtAn = 22
+let Vorwärts = 70
+let Rückwärs = 21
+let RechtsDrehen = 67
+let LinksDrehen = 68
+let LichtAus = 25
 let MaximaleGeschwindigkeit = 70
 basic.showLeds(`
     . # . # .
@@ -9,36 +16,20 @@ basic.showLeds(`
 music.play(music.stringPlayable("C5 A G F G A B C5 ", 120), music.PlaybackMode.UntilDone)
 irRemote.connectInfrared(DigitalPin.P0)
 basic.forever(function () {
-    if (input.isGesture(Gesture.Shake)) {
-        basic.showLeds(`
-            . # # # .
-            # . # . #
-            # # # # #
-            . # # # .
-            . # # # .
-            `)
-        for (let index = 0; index < 4; index++) {
-            music.play(music.createSoundExpression(WaveShape.Noise, 54, 54, 255, 160, 500, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
-        }
-    } else {
-        basic.showLeds(`
-            . # . # .
-            # # # # #
-            # # # # #
-            . # # # .
-            . . # . .
-            `)
-    }
-})
-basic.forever(function () {
-    if (irRemote.returnIrButton() == 70) {
+    if (irRemote.returnIrButton() == Vorwärts) {
         mecanumRobotV2.MotorenVorwärts(MaximaleGeschwindigkeit)
-    } else if ((0 as any) == (68 as any)) {
+    } else if (irRemote.returnIrButton() == LinksDrehen) {
         mecanumRobotV2.LinksDrehen(MaximaleGeschwindigkeit)
-    } else if (irRemote.returnIrButton() == 67) {
+    } else if (irRemote.returnIrButton() == RechtsDrehen) {
         mecanumRobotV2.RechtsDrehen(MaximaleGeschwindigkeit)
-    } else if (irRemote.returnIrButton() == 21) {
+    } else if (irRemote.returnIrButton() == Rückwärs) {
         mecanumRobotV2.MotorenRückwärts(MaximaleGeschwindigkeit)
+    } else if (irRemote.returnIrButton() == LichtAn) {
+        mecanumRobotV2.setLed(LED.Left, LEDColor.Rainbow)
+        mecanumRobotV2.setLed(LED.Right, LEDColor.Rainbow)
+    } else if (irRemote.returnIrButton() == LichtAus) {
+        mecanumRobotV2.setLed(LED.Right, LEDColor.Off)
+        mecanumRobotV2.setLed(LED.Left, LEDColor.Off)
     } else {
         mecanumRobotV2.MotorenAnhalten()
     }
