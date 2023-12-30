@@ -1,4 +1,4 @@
-mecanumRobotV2.setServo(0)
+mecanumRobotV2.stelleServo(0)
 let LichtAn = 22
 let Vorwärts = 70
 let Rückwärs = 21
@@ -25,12 +25,10 @@ basic.forever(function () {
     } else if (irRemote.returnIrButton() == Rückwärs) {
         mecanumRobotV2.motorenRückwärts(MaximaleGeschwindigkeit)
     } else if (irRemote.returnIrButton() == LichtAn) {
-        mecanumRobotV2.setLed(LED.Left, LEDColor.Rainbow)
-        mecanumRobotV2.setLed(LED.Right, LEDColor.Rainbow)
+    	
     } else if (irRemote.returnIrButton() == LichtAus) {
-        mecanumRobotV2.setLed(LED.Right, LEDColor.Off)
-        mecanumRobotV2.setLed(LED.Left, LEDColor.Off)
+    	
     } else {
-        mecanumRobotV2.MotorenAnhalten()
+        mecanumRobotV2.motorenAnhalten()
     }
 })
