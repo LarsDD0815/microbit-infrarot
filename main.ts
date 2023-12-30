@@ -17,13 +17,13 @@ music.play(music.stringPlayable("C5 A G F G A B C5 ", 120), music.PlaybackMode.U
 irRemote.connectInfrared(DigitalPin.P0)
 basic.forever(function () {
     if (irRemote.returnIrButton() == Vorwärts) {
-        mecanumRobotV2.MotorenVorwärts(MaximaleGeschwindigkeit)
+        mecanumRobotV2.motorenVorwärts(MaximaleGeschwindigkeit)
     } else if (irRemote.returnIrButton() == LinksDrehen) {
-        mecanumRobotV2.LinksDrehen(MaximaleGeschwindigkeit)
+        mecanumRobotV2.linksDrehen(MaximaleGeschwindigkeit)
     } else if (irRemote.returnIrButton() == RechtsDrehen) {
-        mecanumRobotV2.RechtsDrehen(MaximaleGeschwindigkeit)
+        mecanumRobotV2.rechtsDrehen(MaximaleGeschwindigkeit)
     } else if (irRemote.returnIrButton() == Rückwärs) {
-        mecanumRobotV2.MotorenRückwärts(MaximaleGeschwindigkeit)
+        mecanumRobotV2.motorenRückwärts(MaximaleGeschwindigkeit)
     } else if (irRemote.returnIrButton() == LichtAn) {
         mecanumRobotV2.setLed(LED.Left, LEDColor.Rainbow)
         mecanumRobotV2.setLed(LED.Right, LEDColor.Rainbow)

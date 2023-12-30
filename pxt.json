@@ -6,7 +6,7 @@
         "microphone": "*",
         "neopixel": "github:mworkfun/pxt-neopixel-bluetooth",
         "pxt-ir-remote": "github:mworkfun/pxt-ir-remote",
-        "Microbit-Extension-DE": "github:larsdd0815/microbit-extension-de#c78474799b09e4c63c52b4913b103e68678c37f5"
+        "Microbit-Extension-DE": "github:larsdd0815/microbit-extension-de#f3614384ea8e5a101da5a10ba103ef91f4231b84"
     },
     "files": [
         "main.blocks",
@@ -23,7 +23,7 @@
     "supportedTargets": [
         "microbit"
     ],
-    "preferredEditor": "blocksprj",
+    "preferredEditor": "tsprj",
     "yotta": {
         "config": {
             "microbit-dal": {
